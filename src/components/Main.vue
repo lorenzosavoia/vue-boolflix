@@ -19,16 +19,16 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 export default {
     name: 'Main',
     
     data(){
         return{
-            queryStatic: 'https://api.themoviedb.org/3/search/movie?api_key=517822c87cc8db164e77c94cc3efd137&query=batman',
+            // queryStatic: 'https://api.themoviedb.org/3/search/movie?api_key=517822c87cc8db164e77c94cc3efd137&query=batman',
             textSearch:'',
-            query: '',
+            // query: '',
             movie: null,
             movieFiltered: [],
             
@@ -57,28 +57,28 @@ export default {
         // console.log(this.movieFiltered);
     },
     methods:{
-        getFilteredMovie(){
-            // this.query = this.queryStatic + this.textSearch
-            // console.log(query);
-            axios
-            .get(this.queryStatic)
-            .then((results) => {
-            this.movie = results.data.results;
-            this.movie.forEach(element => {
-                // console.log(element.title);
-                this.movieFiltered.push(element)
+        // getFilteredMovie(){
+        //     // this.query = this.queryStatic + this.textSearch
+        //     // console.log(query);
+        //     axios
+        //     .get(this.queryStatic)
+        //     .then((results) => {
+        //     this.movie = results.data.results;
+        //     this.movie.forEach(element => {
+        //         // console.log(element.title);
+        //         this.movieFiltered.push(element)
                   
-            });
+        //     });
             
-            })
-            .catch((error) => console.log(error));
+        //     })
+        //     .catch((error) => console.log(error));
 
-            console.log(this.movieFiltered);
-            return this.movieFiltered
-        },
-        getAllert(){
-            return console.log('ciao');
-        }
+        //     console.log(this.movieFiltered);
+        //     return this.movieFiltered
+        // },
+        // getAllert(){
+        //     return console.log('ciao');
+        // }
     },
 }
 </script>
