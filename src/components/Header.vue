@@ -40,7 +40,7 @@ export default {
             axios
                 .get(`${this.queryStatic}${movie}`, {params:parameters})
                 .then((result) =>{
-                    this.movieFiltered = result.data.results;
+                    this.objToPush.movieFiltered = result.data.results;
                 })
                 .catch((error) => {console.log(error);})
         },
@@ -60,8 +60,8 @@ export default {
         getSearch(){
             this.getFilteredTvs();
             this.getFilteredMovie();
-            this.uniqueArrayTvMovie =[...this.tvsFiltered, ...this.movieFiltered];
-            this.$emit('doSearch', this.uniqueArrayTvMovie);
+            // this.uniqueArrayTvMovie =[...this.tvsFiltered, ...this.movieFiltered];
+            this.$emit('doSearch', this.objToPush);
             // return [...this.movieAndTvs.tvsFiltered, ...this.movieAndTvs.movieFiltered]
             // this.$emit('doSearch', this.movieAndTvs)
             // console.log(this.movieAndTvs);

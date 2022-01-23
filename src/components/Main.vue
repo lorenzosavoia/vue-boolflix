@@ -1,23 +1,40 @@
 <template>
   <main>
-    <ul
-        v-for="(element, index) in uniqueArrayTvMovie"
-        :key="'A'+ index"
-    >
-        <li>{{element.title}}</li>    
-        <li>{{element.original_title}}</li>    
-        <li>{{element.original_language}}</li>    
-        <li>{{element.vote_count}}</li>    
-    </ul> 
+    <Card  
+        v-for="(movie, index) in tvAndMovie.movie"
+        :key="'movie'+ index"
+        :title="movie.title"
+        :original="movie.original_title" 
+        :language="movie.original_language"
+        :vote="movie.vote_average"
+        :poster="movie.poster_path"
+        :cover="movie.overview"
+        :image="`https://image.tmdb.org/t/p/w342${movie.poster_path}`"
+    > 
+    </Card>
+    <Card  
+        v-for="(tvs, index) in tvAndMovie.tvs"
+        :key="'tv'+ index"
+        :title="tvs.name"
+        :original="tvs.original_name" 
+        :language="tvs.original_language"
+        :vote="tvs.vote_average"
+        :poster="tvs.poster_path"
+        :cover="tvs.overview"
+        :image="`https://image.tmdb.org/t/p/w342${tvs.poster_path}`"
+    > 
+    </Card>
+    
   </main>
 </template>
 
 <script>
 // import axios from "axios";
+import Card from "./Card.vue"
 
 export default {
     name: 'Main',
-    props: ["uniqueArrayTvMovie"],
+    props: ["tvAndMovie"],
 
     data(){
         return{
@@ -28,6 +45,9 @@ export default {
             // movie: null,
             
         };
+    },
+    components: {
+        Card,
     },
     computed: {
     //   filterMovie() {

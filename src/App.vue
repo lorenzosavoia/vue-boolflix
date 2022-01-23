@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @doSearch="search($event)"></Header>
-    <Main :uniqueArrayTvMovie="tvAndMovie"> </Main>
+    <Main :tvAndMovie="tvAndMovie"> </Main>
   </div>
 </template>
 
@@ -25,7 +25,9 @@ export default {
   },
   methods:{
     search(value) {
-      this.uniqueArrayTvMovie = value;
+      this.tvAndMovie.movie = value.movieFiltered;
+      this.tvAndMovie.tvs= value.tvsFiltered;
+      console.log(this.tvAndMovie);
     }
   }
 }
