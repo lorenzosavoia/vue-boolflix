@@ -1,13 +1,7 @@
 <template>
   <main>
-      <button type="sumbit" 
-        @click="getFilteredMovie(); getAllert();"
-        
-        >
-
-      </button>
     <ul
-        v-for="(element, index) in movieFiltered"
+        v-for="(element, index) in uniqueArrayTvMovie"
         :key="'A'+ index"
     >
         <li>{{element.title}}</li>    
@@ -23,14 +17,15 @@
 
 export default {
     name: 'Main',
-    
+    props: ["uniqueArrayTvMovie"],
+
     data(){
         return{
             // queryStatic: 'https://api.themoviedb.org/3/search/movie?api_key=517822c87cc8db164e77c94cc3efd137&query=batman',
-            textSearch:'',
+            // textSearch:'',
             // query: '',
-            movie: null,
-            movieFiltered: [],
+            // movieFiltered: [],
+            // movie: null,
             
         };
     },
@@ -54,6 +49,7 @@ export default {
         // })
         // .catch((error) => console.log(error));
 
+        // console.log(this.movieFiltered);
         // console.log(this.movieFiltered);
     },
     methods:{
@@ -83,6 +79,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
 
 </style>

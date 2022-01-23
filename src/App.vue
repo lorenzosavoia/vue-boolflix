@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <Main></Main>
+    <Header @doSearch="search($event)"></Header>
+    <Main :uniqueArrayTvMovie="tvAndMovie"> </Main>
   </div>
 </template>
 
@@ -14,6 +14,19 @@ export default {
   components: {
     Header,
     Main,
+  },
+  data(){
+    return{
+      tvAndMovie: {
+        movie: null,
+        tvs: null,
+      }
+    }
+  },
+  methods:{
+    search(value) {
+      this.uniqueArrayTvMovie = value;
+    }
   }
 }
 </script>
